@@ -1,0 +1,29 @@
+{
+  "person": [
+    {
+      "id": 2,
+      "firstName": "tooyoungmamvota@gmail.com",
+      "lastName": "Takesure"
+    },
+    {
+      "id": 3,
+      "firstName": "John ",
+      "lastName": "Doe"
+    },
+    {
+      "id": 4,
+      "firstName": "Takesure",
+      "lastName": "Mamvota"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

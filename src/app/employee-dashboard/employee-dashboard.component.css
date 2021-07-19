@@ -36,7 +36,7 @@ th, td {
 .btn-edit,
 .btn-delete {
     padding: 5px;
-    margin-right: 8px;
+    margin-right: 20px;
     color: white;
     border: none;
     border-radius:5px;
@@ -48,5 +48,14 @@ th, td {
 
 .btn-delete {
     background-color:tomato;
+
+}
+
+.modal-header {
+    width:100%;
+    background-color: #4d4d4d;
+    color: #ffff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 
 }

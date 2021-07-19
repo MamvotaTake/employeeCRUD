@@ -10,48 +10,26 @@
               </tr>
         </thead>
         <tbody>
-            <tr>
-          
-                <td>Takesure</td>
-                <td>Mamvota</td>
+            <tr *ngFor="let row of employeeData">
+                
+                <td><fa-icon [icon]="faUserCircle"></fa-icon> {{row.firstName}}</td>
+                <td>{{row.lastName}}</td>
                 <td>
                   <div class="button-container">
-                    <button class="btn-edit">Edit</button>
-                    <button class="btn-delete">Delete</button>
+                    <button (click)="onEditEmployee(row)" type ="button" class="btn-edit"  data-bs-toggle="modal" data-bs-target="#exampleModal"><fa-icon [icon]="faPencilAlt"></fa-icon></button>
+                    <button (click)="deleteEmployee(row)" type ="button" class="btn-delete"><fa-icon [icon]="faTrashAlt"></fa-icon></button>
                   </div>
 
                 </td>
             </tr>
         
-            <tr>
-              <td>Takesure</td>
-              <td>Mamvota</td>
-              <td>
-                <div class="button-container">
-                  <button class="btn-edit">Edit</button>
-                  <button class="btn-delete">Delete</button>
-                </div>
-
-              </td>
-            </tr>
-        
-            <tr>
-              <td>Takesure</td>
-              <td>Mamvota</td>
-              <td>
-                <div class="button-container">
-                  <button class="btn-edit">Edit</button>
-                  <button class="btn-delete">Delete</button>
-                </div>
-
-              </td>
-            </tr>
+            
         </tbody>
     </table>
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Добавить сотрудника
-  </button>
+    <button (click)="clickAddEmployee() "type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Добавить сотрудника
+    </button>
   
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -59,15 +37,23 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Создание сотрудника</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
         </div>
         <div class="modal-body">
-          ...
+            <form [formGroup]="formValue">
+                <div class="mb-3">
+                  <input type="text" formControlName="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите имя сотрудника">
+                </div>
+                <div class="mb-3">
+                  <input type="text" formControlName="lastName" class="form-control" id="exampleInputPassword1"  placeholder="Введите фамилия сотрудника">
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button *ngIf="showAdd" class="btn btn-primary" type="button" data-bs-dismiss="modal" (click)="postEmployeeDetails()">Сохранить</button>
+                    <button *ngIf="showUpdate" class="btn btn-primary" type="button" data-bs-dismiss="modal" (click)="updateEmployeeDetails()">Update</button>
+                </div>
+              </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Сохранить</button>
-        </div>
+        
       </div>
     </div>
-  </div>
 </div>
