@@ -1,19 +1,9 @@
 {
-  "person": [
+  "persons": [
     {
-      "id": 2,
+      "id": 1,
       "firstName": "tooyoungmamvota@gmail.com",
       "lastName": "Takesure"
-    },
-    {
-      "id": 3,
-      "firstName": "John ",
-      "lastName": "Doe"
-    },
-    {
-      "id": 4,
-      "firstName": "Takesure",
-      "lastName": "Mamvota"
     }
   ],
   "comments": [

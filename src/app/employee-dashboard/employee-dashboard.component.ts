@@ -3,6 +3,7 @@ import{FormBuilder, FormGroup} from '@angular/forms';
 import { ApiService } from '../shared/api.service';
 import {faPencilAlt, faTrashAlt, faUserCircle} from '@fortawesome/free-solid-svg-icons'
 import { EmployeeModel } from './employee-dashboard.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-employee-dashboard',
@@ -19,8 +20,11 @@ export class EmployeeDashboardComponent implements OnInit {
   showAdd !: boolean;
   showUpdate !: boolean;
 
-  constructor(private formBuilder: FormBuilder, 
-    private api: ApiService) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private api: ApiService, 
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit(): void {
     this.formValue = this.formBuilder.group({
@@ -42,11 +46,11 @@ export class EmployeeDashboardComponent implements OnInit {
     this.api.postEmployee(this.employeeModelObject)
     .subscribe(res => {
       console.log(res)
-      alert("Employee Added Successfully")
+      this.toastr.success("Employee Added Successfully", 'Success')
       this.formValue.reset();
     }, 
     err=>{
-      alert("Something Went Wrong")
+      this.toastr.error("Something Went Wrong", 'Error')
     })
   }
 
@@ -58,7 +62,7 @@ export class EmployeeDashboardComponent implements OnInit {
 
   deleteEmployee(row : any) {
     this.api.deleteEmployee(row.id).subscribe(res=>{
-      alert("Employee deleted");
+      this.toastr.success("Employee deleted",'Alert');
       this.getAllEmployees();
     })
   }
@@ -77,7 +81,7 @@ export class EmployeeDashboardComponent implements OnInit {
 
     this.api.updateEmployee(this.employeeModelObject, this.employeeModelObject.id)
     .subscribe(res => {
-      alert("Updated Successfully");
+      this.toastr.success("Updated Successfully", 'Success');
     })
   }
 }

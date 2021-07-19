@@ -1,6 +1,6 @@
 .container {
     /* width: 1240px; */
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .container h1 {
@@ -30,7 +30,11 @@ th, td {
     border: none;
     background-color:rgb(49, 88, 196);
     color: white;
-    border-radius:5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
 
 .btn-edit,
@@ -39,7 +43,11 @@ th, td {
     margin-right: 20px;
     color: white;
     border: none;
-    border-radius:5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
 
 .btn-edit{
@@ -57,5 +65,18 @@ th, td {
     color: #ffff;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    
+}
 
+@media screen and (max-width: 34rem) {
+    table{
+        width: 100%;
+    }
+
+    th, td {
+        padding: 5px;
+        text-align:left;
+    }
+
+    
 }
