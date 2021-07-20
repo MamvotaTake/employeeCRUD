@@ -37,7 +37,8 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Создание сотрудника</h5>
+          <h5 *ngIf="showAdd" class="modal-title" id="exampleModalLabel">Создание сотрудника</h5>
+          <h5 *ngIf="showUpdate" class="modal-title" id="exampleModalLabel">Редактирование сотрудника</h5>
           <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
         </div>
         <div class="modal-body">
@@ -50,7 +51,7 @@
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button *ngIf="showAdd" class="btn btn-primary" type="button" data-bs-dismiss="modal" (click)="postEmployeeDetails()">Сохранить</button>
-                    <button *ngIf="showUpdate" class="btn btn-primary" type="button" data-bs-dismiss="modal" (click)="updateEmployeeDetails()">Update</button>
+                    <button *ngIf="showUpdate" class="btn btn-primary" type="button" data-bs-dismiss="modal" (click)="updateEmployeeDetails()">Сохранить</button>
                 </div>
               </form>
         </div>
